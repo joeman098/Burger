@@ -9,20 +9,25 @@ var orm = {
       console.log(result);
     });
   },
-  addNew: function(value) {
-    var queryString = "INSERT INTO burgers (burgers, devoured) VALUES (?, false)"
-    connection.query(queryString, [value], function(err, result) {
-      if (err) throw err;
-      console.log(result);
+  addNew: function(name,devoured, cb) {
+  name = "'"+name+"'";
+    var queryString = "Insert into burgers (burger_name , devoured ) VALUES ( " +name+ "," + devoured+ ");"
+    connection.query(queryString, function(err, result) {
+      if (err) {
+      throw err;
+      }
+      cb(result);
     });
   },
-  showAll: function () {
-    var queryString = "SELECT * FROM burgers"
+
+  all: function(cb) {
+    var queryString = "SELECT * FROM burgers ;";
     connection.query(queryString, function(err, result) {
-      if (err) throw err;
-      console.log(result);
+      if (err) {
+        throw err;
+      }
+      cb(result);
     });
-    
   },
 
 }

@@ -5,13 +5,17 @@ var burgerOrm = {
     eat: function (id) {
         orm.devour(id);
     },
-    add: function (name) {
-        orm.addNew(name)
+    add: function (name, devoured, cb,) {
+        orm.addNew(name,devoured, function (res) {
+            cb(res);
+        });
+
     },
-    show: function () {
-        orm.showAll
-        
-    },
+    all: function(cb) {
+        orm.all(function(res) {
+          cb(res);
+        });
+      },
 
 }
 
