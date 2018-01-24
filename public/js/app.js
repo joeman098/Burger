@@ -28,7 +28,9 @@ $(function() {
     var devour = {
       devoured: 1
     };
+
     console.log(id);
+    
     $.ajax("/api/burgers/" + id, {
       type: "PUT",
       data: devour

@@ -1,0 +1,8 @@
+body{
+   color: blue; 
+   background-image: url("../img/food.png")
+}
+.col-lg-6{
+    max-height: 30vw;
+    overflow: auto;
+}

@@ -2,11 +2,11 @@ var connection = require("./connection.js");
 
 var orm = {
 
-  devour: function(id) {
+  devour: function(id, cb) {
     var queryString = "UPDATE burgers SET devoured= 1 WHERE id = ?"
     connection.query(queryString, [id], function(err, result) {
       if (err) throw err;
-      console.log(result);
+      cb(result);
     });
   },
   addNew: function(name,devoured, cb) {
